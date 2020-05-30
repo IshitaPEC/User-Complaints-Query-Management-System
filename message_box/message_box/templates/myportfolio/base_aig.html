@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+
+    <link rel="stylesheet" href='{% static "css/mystyle.css" %}' />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Welcome!</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <!--Check if the user is autheticated or not-->
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'mess:aigoffice' %}">MyInbox</a></li>
+
+            <li><a href="{% url 'mess:actionpendingaig' %}">Action Pending</a></li>
+            <li><a href="{% url 'mess:action_taken_aig' %}">Action Taken</a></li>
+            <li><a href="{% url 'mess:reconsider_aig' %}">Reconsider</a></li>
+          <li><a href="{% url 'mess:userlogout' %}">Logout</a></li>
+          {% else %}
+            <li><a href="{% url 'mess:login' %}">Login</a></li>
+          {% endif %}
+
+
+        </ul>
+      </div>
+    </nav>
+<div>
+      {% block body %}
+      {% endblock %}
+</div>
+  </body>
+
+</html>

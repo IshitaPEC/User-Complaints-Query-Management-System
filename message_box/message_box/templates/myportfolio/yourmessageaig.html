@@ -1,0 +1,49 @@
+<html>
+<body>
+  <div class="container">
+    {% if dgp %}
+      <a href="{% url 'mess:dgpoffice' %}">Back to Inbox</a>
+    {% else %}
+      <a href="{% url 'mess:aigoffice' %}">Back to Inbox</a>
+ {% endif %}
+    <h4>Complaint Id: {{Message_detail.complaint_id}}</h4>
+    <h4>Name: {{Message_detail.Name}}</h4>
+    <h4>Aadhar Card: {{Message_detail.Aadhar}} </h4>
+    <h4>Contact Number: {{Message_detail.Contact_Number}}</h4>
+    <h4>Email ID: {{Message_detail.Email_id}}</h4>
+    <h4>Address: {{Message_detail.Address}}</h4>
+    <h4>City: {{Message_detail.City}}</h4>
+    <h4>State: {{Message_detail.State}}</h4>
+    <h4>PIN-Code: {{Message_detail.PIN_Code}}</h4>
+    <h4>Title: {{Message_detail.title}}</h4>
+    <h4>Description: {{Message_detail.description}}</h4>
+    {% if Message_detail.up_files %}
+    <h4>File :<a target="_blank" href='media/{{Message_detail.up_files}}'>{{Message_detail.up_files}}</a>
+    {% endif %}
+    {% if Message_detail.comments %}
+    <h4>Comments from DGP: {{Message_detail.comments}}</h4>
+    {% endif %}
+    {% if Message_detail.comments_aig %}
+    <h4>Comments from AIG: {{Message_detail.comments_aig}}</h4>
+    {% endif %}
+    {% if Message_detail.action_taken %}
+    <h4>Action: {{Message_detail.action_taken}}</h4>
+    {% endif %}
+    {% if Message_detail.reconsider_dgp %}
+    <h4>Reconsideraration by DGP: {{Message_detail.reconsider_dgp}}</h4>
+    {% endif %}
+    {% if Message_detail.reconsider_aig %}
+    <h4>Reconsideraration by AIG: {{Message_detail.reconsider_aig}}</h4>
+    {% endif %}
+  </div>
+
+
+
+</div>
+</div>
+
+
+</form>
+
+</body>
+</html>

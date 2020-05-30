@@ -1,0 +1,26 @@
+{% load staticfiles %}
+  <html lang="en" dir="ltr">
+    <head>
+      <link rel="stylesheet" href='{% static "css/mystyle.css" %}' />
+      <link rel="stylesheet" href='{% static "css/mystyle.css" %}' />
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<br/>
+  <div class="container">
+  <h3>Welcome to the Grievance Redressal Forum of Punjab Police</h3><br/><br/>
+  <h4>LOGIN AS OFFICER
+  <a href="{% url 'mess:login' %}" class="btn btn-info" role="button">CLICK</a>
+</h4>
+  <br/><br/>
+  <h4>LODGE YOUR COMPLAINT
+  <a href="{% url 'mess:lodge_complaint' %}" class="btn btn-info" role="button">CLICK</a>
+  </h4><br/>
+</div>
+</body>
+</html>

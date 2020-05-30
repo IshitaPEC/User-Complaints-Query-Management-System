@@ -1,0 +1,54 @@
+{% extends "myportfolio/base_sho.html" %}
+{% block body %}
+
+  <div class="container">
+    <h2>Your Inbox</h2>
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+
+          <th>Sent From</th>
+          <th>Time</th>
+          <th>Subject</th>
+          <th></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for message in messages %}
+
+          <tr>
+          <td>{{message.from_user}}</td>
+          <td>{{message.release_date}}</td>
+          <td>{{message.title}}</td>
+          <td><a href =" {{ message.get_absolute_url }}/update_reconsider/sho">Open</a></td>
+        </tr>
+
+      {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+  </ul>
+  {% if is_paginated %}
+    <ul class="pagination">
+      {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&laquo;</span></li>
+      {% endif %}
+      {% for i in paginator.page_range %}
+        {% if page_obj.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% else %}
+          <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&raquo;</span></li>
+      {% endif %}
+    </ul>
+{% endif %}
+{% endblock %}

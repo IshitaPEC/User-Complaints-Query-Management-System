@@ -1,0 +1,35 @@
+{% extends "myportfolio/base_dean.html" %}
+{% block body %}
+
+  <div class="container">
+    <h2>Your Inbox</h2>
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>From</th>
+          <th>Time</th>
+          <th>Subject</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for message in messages %}
+
+          <tr>
+          <td>{{message.from_user}}</td>
+          <td>{{message.release_date}}</td>
+          <td>{{message.title}}</td>
+          <td><a href='{{message.id}}'>Show Detail</a></td>
+          <td><a href =" {{ message.get_absolute_url }}/reply">Reply</a></td>
+        </tr>
+
+      {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+
+
+  </ul>
+{% endblock %}

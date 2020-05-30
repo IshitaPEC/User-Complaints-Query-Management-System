@@ -1,0 +1,14 @@
+{% extends "myportfolio/base_aig.html" %}
+{% block body %}
+
+  <div class="container">
+ <form method="post" enctype="multipart/form-data" >
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="Submit">
+</form>
+
+  {% endblock %}
+  <a href="{% url '' %}" class="btn btn-info" role="button">Back to Inbox</a>
+
+  </div>

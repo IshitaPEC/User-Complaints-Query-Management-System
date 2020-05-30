@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends "myportfolio/base_dgp.html" %}
+{% block body %}
+{%if not message%}
+<div class="container">
+
+  <form method="post">
+{% csrf_token %}
+
+    <label for="rname">Reciever</label>
+    <select id="reciever" name="reciever">
+      <option value="HOD-META">HOD META</option>
+      <option value="HOD-CSE">HOD CSE</option>
+      <option value="HOD-ECE">HOD ECE</option>
+    </select>
+<br/><br/>
+
+    <label for="title">Title</label>
+    <input type="text" id="Subject" name="title" placeholder="Enter the title here">
+
+<br/><br/>
+    <label for="description">Description</label>
+    <textarea id="Description" name="description" placeholder="Write something.." style="height:200px"></textarea>
+<br/><br/>
+    <input type="submit" value="Submit">
+
+  </form>
+
+</div>
+{% else %}
+<div class="container">
+{{message}}
+</div>
+{% endif %}
+{% endblock %}

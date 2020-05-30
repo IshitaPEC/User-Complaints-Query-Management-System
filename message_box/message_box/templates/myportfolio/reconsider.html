@@ -1,0 +1,15 @@
+{% extends "myportfolio/base_dgp.html" %}
+{% block body %}
+
+  <div class="container">
+ <form method="post" enctype="multipart/form-data" >
+{% csrf_token %}
+{{form.as_p}}
+<b>Incase you want to send your project for reconsideration, kindly unmark the action taken check box</b>
+<input type="submit" value="Submit">
+</form>
+
+  {% endblock %}
+  <a href="{% url '' %}" class="btn btn-info" role="button">Back to Inbox</a>
+
+</html>

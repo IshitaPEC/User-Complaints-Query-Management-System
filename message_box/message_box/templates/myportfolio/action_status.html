@@ -1,0 +1,45 @@
+{% extends "myportfolio/base_complainant.html" %}
+{% block body %}
+{% if not complaint_id and not mess%}
+<form method="POST">
+
+{% csrf_token %}
+<div class="container">
+  <label for="Email_id"><b>Enter your Email Id</b></label>
+  <input type="text" placeholder="Enter your Email Address" name="Email_id">
+
+
+    <label for="complaint_id"><b>Enter your Complaint Number</b></label>
+    <input type="text" placeholder="Enter the Complaint Id" name="complaint_id">
+    <hr>
+
+    <button type="submit" name="button">VIEW ACTION STATUS</button>
+  </form>
+</div>
+
+{% elif not mess %}
+  <div class="container">
+    <h4>Complaint Id: {{complaint_id}}</h4>
+    <h4>Name: {{name}}</h4>
+    <h4>Aadhar Card: {{Aadhar_Card}} </h4>
+    <h4>Contact Number: {{Contact_Number}}</h4>
+    <h4>Email ID: {{Email_id}}</h4>
+    <h4>Address: {{Address}}</h4>
+    <h4>City: {{City}}</h4>
+    <h4>State: {{State}}</h4>
+    <h4>PIN-Code: {{PIN_Code}}</h4>
+    <h4>Title: {{title}}</h4>
+    <h4>Description: {{description}}</h4>
+    {% if up_files %}
+    <h4>File :<a target="_blank" href='media/{{up_files}}'>{{up_files}}</a>
+    {% endif %}
+  </div>
+    <div class="container">
+    <h4>Action Taken: {{Action_taken}}</h4>
+  </div>
+  {% else %}
+  <div class="container">
+    <h4>{{mess}}</h4>
+  </div>
+{% endif %}
+{% endblock %}
